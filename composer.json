@@ -1,6 +1,7 @@
 {
   "name": "kipkron/collection",
   "description": "Implementation of the Collection pattern",
+  "license": "MIT",
   "type": "library",
   "scripts": {
     "test": "phpunit tests/"
