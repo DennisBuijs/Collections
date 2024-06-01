@@ -2,6 +2,9 @@
   "name": "kipkron/collection",
   "description": "Implementation of the Collection pattern",
   "type": "library",
+  "scripts": {
+    "test": "phpunit tests/"
+  },
   "autoload": {
     "psr-4": {
       "Kipkron\\Collection\\": "src/"
