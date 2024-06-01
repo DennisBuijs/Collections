@@ -1,0 +1,19 @@
+{
+    "name": "kipkron/collection",
+    "description": "Implementation of the Collection pattern",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Kipkron\\Collection\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dennis Buijs",
+            "email": "dennisdennisbuijs@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^11.1"
+    }
+}
