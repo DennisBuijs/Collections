@@ -24,4 +24,20 @@ class CollectionTest extends TestCase
 
         $this->assertCount(1, $collection);
     }
+
+    #[Test]
+    public function itShouldIterateOverACollection(): void
+    {
+        $collection = new CustomerCollection();
+        $customer = new Customer(1, "test@example.org");
+        $collection->add($customer);
+        $collection->add($customer);
+
+        $count = 0;
+        foreach ($collection as $customer) {
+            $count++;
+        }
+
+        $this->assertEquals(2, $count);
+    }
 }
