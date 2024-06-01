@@ -6,8 +6,10 @@ use ArrayIterator;
 use Countable;
 use Traversable;
 
+/** @template T */
 abstract class Collection implements \IteratorAggregate, Countable
 {
+    /** @var T[] $items */
     private array $items;
 
     public function __construct()
@@ -15,6 +17,7 @@ abstract class Collection implements \IteratorAggregate, Countable
         $this->items = [];
     }
 
+    /** @param T $item */
     public function add($item): void
     {
         $this->items[] = $item;
