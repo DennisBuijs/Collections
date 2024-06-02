@@ -23,6 +23,12 @@ abstract class Collection implements \IteratorAggregate, Countable
         $this->items[] = $item;
     }
 
+    /** @return T */
+    public function at(int $index)
+    {
+        return $this->items[$index];
+    }
+
     public function getIterator(): Traversable
     {
         return new ArrayIterator($this->items);

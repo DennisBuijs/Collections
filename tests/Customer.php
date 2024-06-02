@@ -2,9 +2,9 @@
 
 namespace Kipkron\Collection\Tests;
 
-class Customer
+readonly class Customer
 {
-    public function __construct(private readonly int $id, private readonly string $email)
+    public function __construct(public int $id, public string $email)
     {
     }
 }

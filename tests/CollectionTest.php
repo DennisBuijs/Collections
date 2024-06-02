@@ -40,4 +40,18 @@ class CollectionTest extends TestCase
 
         $this->assertEquals(2, $count);
     }
+
+    #[Test]
+    public function itShouldReturnAnItemByIndex(): void
+    {
+        $collection = new CustomerCollection();
+        $customer = new Customer(1, "test@example.org");
+        $customer2 = new Customer(2, "test2@example.org");
+        $collection->add($customer);
+        $collection->add($customer2);
+
+        $customerByIndex = $collection->at(1);
+
+        $this->assertEquals("test2@example.org", $customerByIndex->email);
+    }
 }
