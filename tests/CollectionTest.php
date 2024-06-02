@@ -54,4 +54,19 @@ class CollectionTest extends TestCase
 
         $this->assertEquals("test2@example.org", $customerByIndex->email);
     }
+
+    #[Test]
+    public function itShouldFilterItems(): void
+    {
+        $collection = new CustomerCollection();
+        $customer = new Customer(1, "test@example.org");
+        $customer2 = new Customer(2, "test2@example.org");
+        $collection->add($customer);
+        $collection->add($customer2);
+
+        $customers = $collection->filter(fn($item) => $item->email === "test2@example.org");
+
+        $this->assertCount(1, $customers);
+        $this->assertEquals("test2@example.org", $customers->at(0)->email);
+    }
 }

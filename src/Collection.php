@@ -29,6 +29,18 @@ abstract class Collection implements \IteratorAggregate, Countable
         return $this->items[$index];
     }
 
+    public function filter(callable $fn): static
+    {
+        $collection = new static();
+
+        $items = array_filter($this->items, $fn);
+        foreach ($items as $item) {
+            $collection->add($item);
+        }
+
+        return $collection;
+    }
+
     public function getIterator(): Traversable
     {
         return new ArrayIterator($this->items);
