@@ -7,19 +7,32 @@ use Countable;
 use Traversable;
 
 /** @template T */
-abstract class Collection implements \IteratorAggregate, Countable
+class Collection implements \IteratorAggregate, Countable
 {
     /** @var T[] $items */
     private array $items;
+
+    private string $type;
 
     public function __construct()
     {
         $this->items = [];
     }
 
+    public function of(string $type): Collection
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
     /** @param T $item */
     public function add($item): void
     {
+        if (isset($this->type) && !$item instanceof $this->type) {
+            throw new InvalidTypeException($this->type, gettype($item));
+        }
+
         $this->items[] = $item;
     }
 
